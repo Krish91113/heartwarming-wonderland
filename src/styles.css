@@ -2,7 +2,13 @@
 @source "../src";
 @import "tw-animate-css";
 
+@theme {
+  --font-script: "Dancing Script", cursive;
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
+
 
 /*
  * Design system definition.
