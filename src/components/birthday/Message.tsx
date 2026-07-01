@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Gift, Sparkles } from "lucide-react";
 
 export function Message() {
   return (
@@ -17,26 +17,26 @@ export function Message() {
 
           <div className="relative">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-1.5 text-sm font-semibold text-rose-600">
-              <Heart size={14} fill="currentColor" /> A little note for you
+              <Gift size={14} className="text-amber-500" /> A little note for you
             </div>
             <h3 className="font-script text-5xl text-rose-600 sm:text-6xl">Dear Sneha,</h3>
-            <div className="mt-6 space-y-4 text-lg leading-relaxed text-rose-950/85 sm:text-xl">
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-rose-950/85 sm:text-xl font-medium">
               <p>
                 On your special day, I just want to tell you how <strong>grateful</strong> I am
-                to have you in my life. Your smile lights up every room, and your laugh has this
-                magical way of turning ordinary days into unforgettable memories.
+                to have you as such an amazing friend. Your energy lights up every room, and your
+                laugh has this magical way of turning ordinary days into unforgettable memories.
               </p>
               <p>
                 You are the friend who listens without judging, who celebrates every tiny win,
-                and who reminds me that the world is a softer, kinder place because of hearts
-                like yours.
+                and who reminds me that the world is a much brighter, kinder place because of
+                fantastic friends like you.
               </p>
               <p>
                 May this year bring you unlimited happiness, wild adventures, quiet peace,
-                unexpected love, and <em>all the cake you can eat</em>. 🎂
+                unexpected joy, and <em>all the cake you can eat</em>. 🎂
               </p>
-              <p className="font-script text-3xl text-rose-500 sm:text-4xl">
-                Love you tons, always. ❤️
+              <p className="font-script text-3xl text-rose-500 sm:text-4xl mt-6 flex items-center gap-2">
+                Wishing you the absolute best birthday, buddy! 🌟🎉
               </p>
             </div>
           </div>

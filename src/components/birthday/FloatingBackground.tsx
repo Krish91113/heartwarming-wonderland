@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Star, Sparkle, Gift } from "lucide-react";
 
 const balloons = [
   { color: "bg-pink-300", left: "5%", delay: 0 },
@@ -12,10 +12,19 @@ const balloons = [
   { color: "bg-violet-300", left: "94%", delay: 1.5 },
 ];
 
-const hearts = Array.from({ length: 14 }, (_, i) => ({
+const sparks = Array.from({ length: 14 }, (_, i) => ({
   left: `${(i * 7 + 3) % 100}%`,
   delay: (i * 0.7) % 6,
-  size: 14 + (i % 4) * 6,
+  size: 12 + (i % 4) * 6,
+  isStar: i % 2 === 0,
+  color: [
+    "text-amber-400/60",
+    "text-yellow-400/60",
+    "text-pink-400/60",
+    "text-fuchsia-400/60",
+    "text-purple-400/60",
+    "text-cyan-400/60",
+  ][i % 6],
 }));
 
 export function FloatingBackground() {
@@ -34,26 +43,30 @@ export function FloatingBackground() {
             x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
           }}
         >
-          <div className={`h-16 w-14 rounded-full ${b.color} shadow-xl shadow-pink-200/50 opacity-80`} />
+          <div className={`h-16 w-14 rounded-full ${b.color} shadow-xl shadow-pink-200/50 opacity-80 flex items-center justify-center`} />
           <div className="mx-auto h-16 w-px bg-pink-300/60" />
         </motion.div>
       ))}
 
-      {/* Floating hearts */}
-      {hearts.map((h, i) => (
+      {/* Floating stars/sparkles */}
+      {sparks.map((s, i) => (
         <motion.div
-          key={`h-${i}`}
-          className="absolute -bottom-10 text-rose-400/60"
-          style={{ left: h.left }}
+          key={`s-float-${i}`}
+          className={`absolute -bottom-10 ${s.color}`}
+          style={{ left: s.left }}
           initial={{ y: 0, opacity: 0 }}
           animate={{ y: "-110vh", opacity: [0, 1, 1, 0] }}
-          transition={{ duration: 12 + (i % 4), repeat: Infinity, delay: h.delay, ease: "linear" }}
+          transition={{ duration: 12 + (i % 4), repeat: Infinity, delay: s.delay, ease: "linear" }}
         >
-          <Heart size={h.size} fill="currentColor" />
+          {s.isStar ? (
+            <Star size={s.size} fill="currentColor" />
+          ) : (
+            <Sparkle size={s.size} fill="currentColor" />
+          )}
         </motion.div>
       ))}
 
-      {/* Sparkles */}
+      {/* Extra Tiny Twinkling Sparkles */}
       {Array.from({ length: 30 }).map((_, i) => (
         <motion.div
           key={`s-${i}`}
